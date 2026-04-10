@@ -119,6 +119,9 @@ Write 1 to 2 paragraphs here about what you learned:
 
 ![Terminal Output](Terminal%20Output.png)
 
+![Terminal Output1](Termina%20Output1.png)
+
+![Terminal Output2](Terminal%20Output2.png)
 
 ---
 

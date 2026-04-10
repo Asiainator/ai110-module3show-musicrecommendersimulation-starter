@@ -66,9 +66,9 @@ def load_songs(csv_path: str) -> List[Dict]:
 
 def score_song(user_prefs: Dict, song: Dict) -> float:
     """Score a song 0.0–4.0 based on genre, mood, and energy similarity to user prefs."""
-    genre_score = 2.0 if song["genre"] == user_prefs["genre"] else 0.0
+    genre_score = 1.0 if song["genre"] == user_prefs["genre"] else 0.0
     mood_score = 1.0 if song["mood"] == user_prefs["mood"] else 0.0
-    energy_score = 1.0 - abs(user_prefs["energy"] - song["energy"])
+    energy_score = 2.0 * (1.0 - abs(user_prefs["energy"] - song["energy"]))
     return genre_score + mood_score + energy_score
 
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:

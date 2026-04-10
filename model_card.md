@@ -3,13 +3,15 @@
 ## 1. Model Name  
 
 Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+Example: **JuJu Song Radar*  
 
 ---
 
 ## 2. Intended Use  
 
 Describe what your recommender is designed to do and who it is for. 
+
+It is a simple song recommender based on if a song is your favoruite genre, if it's your favoruite mood and how close the energy of the song is to your perfect song.
 
 Prompts:  
 
@@ -22,6 +24,13 @@ Prompts:
 ## 3. How the Model Works  
 
 Explain your scoring approach in simple language.  
+
+Genre and Mood give a huge priorites and energy is equivalent to if the Genre and Mood were the same if it was perfectly suited to the person but Energy is a spectrum and genre and mood being binary yes or no additions.
+
+score = (1.0 if genre matches else 0)
+      + (1.0 if mood matches else 0)
+      + 2.0 × (1.0 - |user_energy - song_energy|)
+
 
 Prompts:  
 
@@ -38,6 +47,19 @@ Avoid code here. Pretend you are explaining the idea to a friend who does not pr
 
 Describe the dataset the model uses.  
 
+"Starter (Pop/Happy)": {
+        "genre": "pop", "mood": "happy", "energy": 0.8
+    },
+    "High-Energy Pop": {
+        "genre": "pop", "mood": "happy", "energy": 0.95
+    },
+    "Chill Lofi": {
+        "genre": "lofi", "mood": "chill", "energy": 0.35
+    },
+    "Deep Intense Rock": {
+        "genre": "rock", "mood": "intense", "energy": 0.90
+    },
+
 Prompts:  
 
 - How many songs are in the catalog  
@@ -51,6 +73,8 @@ Prompts:
 
 Where does your system seem to work well  
 
+Energy levels near .50 because it has more to work with.
+
 Prompts:  
 
 - User types for which it gives reasonable results  
@@ -62,6 +86,8 @@ Prompts:
 ## 6. Limitations and Bias 
 
 Where the system struggles or behaves unfairly. 
+
+Because of the Energy gap being Linear it gives low energy users worse recomedations but because of how linear works it will give more options and better options near .50 as that has the most options and .100 and .0 energy listeners are unfairly treated.
 
 Prompts:  
 
@@ -75,6 +101,8 @@ Prompts:
 ## 7. Evaluation  
 
 How you checked whether the recommender behaved as expected. 
+
+Calculated myself and had easy to calculate numbers based on the Genre and Mood making simple, the weight shift suprised me the most as it had some weird affects on certain genres.
 
 Prompts:  
 
@@ -91,6 +119,8 @@ No need for numeric metrics unless you created some.
 
 Ideas for how you would improve the model next.  
 
+Maybe make Genre and Mood more like an spectrum like a bell curve almost of Genre and Moods as certain genre and mood are close, making an adjanceny list or bell curve also would love to include more variables. 
+
 Prompts:  
 
 - Additional features or preferences  
@@ -103,6 +133,8 @@ Prompts:
 ## 9. Personal Reflection  
 
 A few sentences about your experience.  
+
+I think i'm gettting more proficient at using AI as a tool and building this recommended has informed me about how simple recommendations can be and how easy this type of thing can expand.
 
 Prompts:  
 
