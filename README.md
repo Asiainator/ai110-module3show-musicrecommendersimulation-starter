@@ -1,3 +1,6 @@
+
+
+
 # 🎵 Music Recommender Simulation
 
 ## Project Summary
@@ -15,9 +18,22 @@ Replace this paragraph with your own summary of what your version does.
 
 ---
 
+
+
 ## How The System Works
 
 Explain your design in plain language.
+
+ It will use Genre, Mood, and Energy and pick the song from songs.csv closest to what the user wants based on their UserProfile.
+
+ Algorithm Recipe
+
+Genre and Mood have heavy priotizations if used but every is mostly based on energy.
+
+ score = (2.0 if genre matches else 0)
+      + (1.0 if mood matches else 0)
+      + (1.0 - |user_energy - song_energy|)
+
 
 Some prompts to answer:
 
@@ -100,6 +116,8 @@ Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
+
+![Terminal Output](Terminal%20Output.png)
 
 
 ---
